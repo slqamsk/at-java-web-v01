@@ -1,8 +1,5 @@
 package demo.part02;
-<<<<<<< HEAD
-=======
 import com.codeborne.selenide.Condition;
->>>>>>> 72b03e13e09aa01b7309cdf3dc1519b9da7a0310
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
@@ -16,12 +13,8 @@ public class SearchDemoTest {
 
         By myLocator = By.id("submit-button");
         SelenideElement myElement = Selenide.element(myLocator);
-<<<<<<< HEAD
         myElement.shouldBe(visible);
-=======
         myElement.shouldBe(Condition.visible);
->>>>>>> 72b03e13e09aa01b7309cdf3dc1519b9da7a0310
-
         element(By.id("submit-button")).shouldBe(visible);
         $(By.id("submit-button")).shouldBe(visible);
 
