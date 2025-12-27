@@ -21,13 +21,40 @@ public class LoginPage {
         this.loginButton.click();
     }
 
+    @Step("Вход в систему с помощью Enter")
+    public void loginWithEnter(String username, String password) {
+        this.username.setValue(username);
+        this.password.setValue(password).pressEnter();
+    }
+
+    @Step("Вход с пустыми полями")
+    public void loginWithEmptyFields() {
+        this.loginButton.click();
+    }
+
     @Step("Неуспешный логин")
     public void isLoginUnsuccessful() {
         this.errorMessage.shouldHave(text("Неверное имя пользователя или пароль."));
     }
 
+    @Step("Проверка сообщения о заблокированном пользователе")
+    public void isUserBlocked() {
+        // На этом сайте заблокированный пользователь возвращает обычное сообщение об ошибке
+        this.errorMessage.shouldHave(text("Неверное имя пользователя или пароль."));
+    }
+
+    @Step("Проверка сообщения о пустых полях")
+    public void isEmptyFieldsError() {
+        this.errorMessage.shouldHave(text("Username and Password are required."));
+    }
+
     @Step("Успешный логин")
     public void isLoginSuccessful(String fio) {
+        this.greeting.shouldHave(text("Добро пожаловать, " + fio + "!"));
+    }
+
+    @Step("Проверка отображения ФИО в шапке")
+    public void verifyFIOInHeader(String fio) {
         this.greeting.shouldHave(text("Добро пожаловать, " + fio + "!"));
     }
 

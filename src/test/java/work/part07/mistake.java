@@ -25,16 +25,6 @@ public class mistake {
     }
 
     //Автотесты
-    // 0.проверка что дата в прошлом
-    @Test
-    void test01WrongPassword() {
-        $("#username").setValue("standard_user");
-        $("#password").setValue("WrongPassword");
-        $("#loginButton").click();
-        $("#message").shouldHave(text("Неверное имя пользователя или пароль."));
-    }
-
-
     // 1. Неуспешный логин
     @Test
     void test01WrongPassword() {

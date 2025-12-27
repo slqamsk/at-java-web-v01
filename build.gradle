@@ -28,7 +28,7 @@ dependencies {
     //testImplementation 'org.seleniumhq.selenium:selenium-devtools:4.29.0'
     // Ваши остальные зависимости Selenium остаются прежними
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.29.0'
-    testImplementation 'org.aspectj:aspectjweaver:1.9.19'
+    testImplementation 'org.aspectj:aspectjweaver:1.9.22'
     testImplementation 'org.springframework:spring-aspects:5.3.23'
 
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.11.4')
