@@ -80,36 +80,7 @@ public class DebDownloadTest {
         // После клика страница может уйти на загрузку; даём время начать запись в папку
         sleep(3000);
 
-        // Ожидаем ~30% загрузки (VS Code .deb ~90 MB, 30% ≈ 27 MB)
-        long targetSize = 27L * 1024 * 1024;
-        long deadline = System.currentTimeMillis() + 60_000;
-        while (System.currentTimeMillis() < deadline) {
-            long current = getLargestFileSize(downloadPath);
-            if (current >= targetSize) break;
-            sleep(1000);
-        }
-
         // Закрываем браузер без диалога (browser.warnOnQuit = false)
         closeWebDriver();
-    }
-
-    /** Размер самого большого файла в каталоге (частичная загрузка). */
-    private static long getLargestFileSize(Path dir) {
-        try {
-            if (!Files.isDirectory(dir)) return 0;
-            return Files.list(dir)
-                    .filter(Files::isRegularFile)
-                    .mapToLong(p -> {
-                        try {
-                            return Files.size(p);
-                        } catch (Exception e) {
-                            return 0L;
-                        }
-                    })
-                    .max()
-                    .orElse(0L);
-        } catch (Exception e) {
-            return 0L;
-        }
     }
 }
