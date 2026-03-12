@@ -28,7 +28,7 @@ public class POMFlightsTests {
 
     @BeforeEach
     void setUp() {
-        open("https://slqamsk.github.io/cases/slflights/v01/");
+        open("https://slqamsk.github.io/cases/slflights/v02/");
         getWebDriver().manage().window().maximize();
         sleep(10_000);
     }
