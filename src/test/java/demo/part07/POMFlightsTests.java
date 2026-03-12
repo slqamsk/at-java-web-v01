@@ -163,7 +163,7 @@ public class POMFlightsTests {
         registrationPage.registration("Иван Петров", "", "test@mail.ru", "+79999999999");
         registrationPage.isErrorFillAllFied();
 
-        // повторный ввод паспорта с корректными данными - успешная регистрация."
+        // повторный ввод паспорта с корректными данными - успешная регистрация.
         registrationPage.registration("Иван Петров", "1234 123456", "test@mail.ru", "+79999999999");
         registrationPage.successRegistration();
     }
